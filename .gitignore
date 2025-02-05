@@ -1,0 +1,20 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.env
+.venv
+venv/
+ENV/
+.vscode/
+.idea/
+*.sqlite3
+*.db
+
+# Tkinter specific files
+*.log
+
+# Other
+.DS_Store
+.git/
