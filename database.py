@@ -5,20 +5,21 @@ def initialize_database() -> None:
     cursor = conn.cursor()
 
     cursor.execute('''
-        create table if not exists users (
-            id,
-            username,
-            password,
-            balance
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT UNIQUE NOT NULL,
+            password TEXT NOT NULL,
+            balance REAL DEFAULT 0
         )
     ''')
 
     cursor.execute('''
-        create table if not exists transactions(
-            id,
-            username,
-            date,
-            description 
+        CREATE TABLE IF NOT EXISTS transactions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username TEXT NOT NULL,
+            date TEXT NOT NULL,
+            description TEXT NOT NULL,
+            FOREIGN KEY (username) REFERENCES users(username)
         )
     ''')
 
